@@ -1,3 +1,23 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+:root{
+  --primary-color: #6c5dd3;
+  --white-color: #fff;
+  --gray-text-color: #808191;
+  --background-1-color: #1F2128;
+  --background-2-color: #242731;
+  --gray-line-color: #33353B;
+  --green-online-color: #7FBA7A;
+  --gray-background-color-10: rgba(228, 228, 228, 0.1);
+  --background-counter-color: #FF754C;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
