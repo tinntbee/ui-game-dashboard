@@ -1,0 +1,11 @@
+.message-icon {
+  background: var(--primary-color);
+}
+
+.love-icon {
+  background: var(--background-counter-color);
+}
+
+.comment-icon {
+  background: var(--success-color);
+}

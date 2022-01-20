@@ -1,54 +1,60 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
 import WhiteLogo from "../../icons/Logo/WhiteLogo";
-import LightModeIcon from "../../icons/SlideBar/LightModeIcon";
-import LoadMoreIcon from "../../icons/SlideBar/LoadMoreIcon";
-import "./SlideBar.css";
+import LoadMoreIcon from "../../icons/SideBar/LoadMoreIcon";
+import "./SideBar.css";
 import {
-  SlideBarData_Analytics,
-  SlideBarData_Following,
-  SlideBarData_NewsFeeds,
-  SlideBarData_UnityGaming,
-} from "./SlideBarData";
+  SideBarData_Analytics,
+  SideBarData_Following,
+  SideBarData_NewsFeeds,
+  SideBarData_UnityGaming
+} from "./SideBarData";
 
-SliderBar.propTypes = {};
+SideBar.propTypes = {};
 
-function SliderBar(props) {
-  const [slideItemActive, setSlideItemActive] = useState(0);
+function SideBar(props) {
+  const [sideItemActive, setSideItemActive] = useState(0);
   const [followingItemActive, setFollowingItemActive] = useState(-1);
-  const [slideBurger, setSlideBurger] = useState(true);
+  const [sideBurger, setSideBurger] = useState(false);
   const [unityGamingItemActive, setUnityGamingItemActive] = useState(-1);
-  const handleSlideItemClick = (index) => {
-    setSlideItemActive(index);
+  const [title, setTitle] = useState("News Feed");
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+  const handleSideItemClick = (index, item) => {
+    setSideItemActive(index);
     if (followingItemActive !== -1) {
       setFollowingItemActive(-1);
     }
     if (unityGamingItemActive !== -1) {
       setUnityGamingItemActive(-1);
     }
+    setTitle(item.title);
   };
-  const handleSlideBurgerClick = () => {
-    setSlideBurger(!slideBurger);
+  const handleSideBurgerClick = () => {
+    setSideBurger(!sideBurger);
   };
-  const handleFollowingItemClick = (index) => {
+  const handleFollowingItemClick = (index, item) => {
     setFollowingItemActive(index);
-    if (slideItemActive !== -1) {
-      setSlideItemActive(-1);
+    if (sideItemActive !== -1) {
+      setSideItemActive(-1);
     }
     if (unityGamingItemActive !== -1) {
       setUnityGamingItemActive(-1);
     }
+    setTitle(item.name + " | UI-gaming");
   };
-  const handleUnityGamingItemActive = (index) => {
+  const handleUnityGamingItemActive = (index, item) => {
     setUnityGamingItemActive(index);
     if (followingItemActive !== -2) {
       setFollowingItemActive(-2);
     }
-    if (slideItemActive !== -1) {
-      setSlideItemActive(-1);
+    if (sideItemActive !== -1) {
+      setSideItemActive(-1);
     }
+    setTitle(item.name);
   };
   const calcPositionFollowingActive = (index) => {
     if (index >= 0) {
@@ -62,49 +68,49 @@ function SliderBar(props) {
 
   return (
     <IconContext.Provider value={{ color: "#fff" }}>
-      <div className={slideBurger ? "slide-bar active" : "slide-bar"}>
-        <div className="slide-bar-header">
-          <WhiteLogo className="slide-bar__logo" />
+      <div className={sideBurger ? "side-bar active" : "side-bar"}>
+        <div className="side-bar-header">
+          <WhiteLogo className="side-bar__logo" />
           <button
-            onClick={() => handleSlideBurgerClick()}
+            onClick={() => handleSideBurgerClick()}
             className={
-              slideBurger ? "slide-bar__burger active" : "slide-bar__burger"
+              sideBurger ? "side-bar__burger active" : "side-bar__burger"
             }
           ></button>
         </div>
 
-        <div className="slide-bar-body">
-          <div className="slide-bar__home-tabs">
-            <h2 className="slide-bar__title">New Feeds</h2>
+        <div className="side-bar-body">
+          <div className="side-bar__home-tabs">
+            <h2 className="side-bar__title">New Feeds</h2>
             <ul>
               <li
                 className={classNames({
                   item_active: true,
-                  visible: slideItemActive >= 0,
+                  visible: sideItemActive >= 0,
                 })}
                 style={
-                  slideItemActive !== -1 ? { "--value": slideItemActive } : {}
+                  sideItemActive !== -1 ? { "--value": sideItemActive } : {}
                 }
               >
                 <Link to="#" />
               </li>
-              {SlideBarData_NewsFeeds.map((item, index) => {
+              {SideBarData_NewsFeeds.map((item, index) => {
                 return (
                   <li
                     className={
-                      index === slideItemActive
+                      index === sideItemActive
                         ? item.className + " active"
                         : item.className
                     }
-                    onClick={() => handleSlideItemClick(index)}
+                    onClick={() => handleSideItemClick(index, item)}
                     key={index}
                   >
                     <Link
                       to={item.path}
-                      className={index === slideItemActive ? "active" : ""}
+                      className={index === sideItemActive ? "active" : ""}
                     >
                       {item.icon}
-                      <span className="slide-bar-item__name">{item.title}</span>
+                      <span className="side-bar-item__name">{item.title}</span>
                       {item.icon_last ? item.icon_last : ""}
                     </Link>
                   </li>
@@ -113,8 +119,8 @@ function SliderBar(props) {
             </ul>
           </div>
 
-          <div className="slide-bar__following-list">
-            <h2 className="slide-bar__title">Following</h2>
+          <div className="side-bar__following-list">
+            <h2 className="side-bar__title">Following</h2>
             <ul>
               <li
                 className={classNames({
@@ -124,10 +130,10 @@ function SliderBar(props) {
                 })}
                 style={calcPositionFollowingActive(followingItemActive)}
               ></li>
-              {SlideBarData_Following.map((item, index) => {
+              {SideBarData_Following.map((item, index) => {
                 return (
                   <li
-                    onClick={() => handleFollowingItemClick(index)}
+                    onClick={() => handleFollowingItemClick(index, item)}
                     className={classNames({
                       following_item: true,
                       active: index === followingItemActive,
@@ -141,19 +147,19 @@ function SliderBar(props) {
                       alt={item.name}
                       src={item.avatar_url}
                     />
-                    <span className="slide-bar-item__name">{item.name}</span>
+                    <span className="side-bar-item__name">{item.name}</span>
                   </li>
                 );
               })}
               <li className="following_item__load-more">
                 <LoadMoreIcon />
-                <span className="slide-bar-item__name">Load more</span>
+                <span className="side-bar-item__name">Load more</span>
               </li>
             </ul>
           </div>
 
-          <div className="slide-bar__unity-gaming">
-            <h2 className="slide-bar__title">Unity Gaming</h2>
+          <div className="side-bar__unity-gaming">
+            <h2 className="side-bar__title">Unity Gaming</h2>
             <ul>
               <li
                 className={classNames({
@@ -168,7 +174,7 @@ function SliderBar(props) {
               >
                 <Link to="#" />
               </li>
-              {SlideBarData_UnityGaming.map((item, index) => {
+              {SideBarData_UnityGaming.map((item, index) => {
                 return (
                   <li
                     key={index}
@@ -176,13 +182,13 @@ function SliderBar(props) {
                       "unity-gaming-item": true,
                       active: index === unityGamingItemActive,
                     })}
-                    onClick={() => handleUnityGamingItemActive(index)}
+                    onClick={() => handleUnityGamingItemActive(index, item)}
                     style={{ "--value": item.status }}
                     value={item.status}
                   >
                     <Link to={item.path}>
                       {item.icon}
-                      <span className="slide-bar-item__name">{item.name}</span>
+                      <span className="side-bar-item__name">{item.name}</span>
                     </Link>
                   </li>
                 );
@@ -190,8 +196,8 @@ function SliderBar(props) {
             </ul>
           </div>
 
-          <div className="slide-bar__banner">
-            {SlideBarData_Analytics.map((item, index) => {
+          <div className="side-bar__banner">
+            {SideBarData_Analytics.map((item, index) => {
               return (
                 <div key={index} className="analytics-item">
                   <div
@@ -212,12 +218,10 @@ function SliderBar(props) {
           </div>
         </div>
 
-        <div className="slide-bar-footer">
-          {/* <LightModeIcon /> */}
-        </div>
+        <div className="side-bar-footer">{/* <LightModeIcon /> */}</div>
       </div>
     </IconContext.Provider>
   );
 }
 
-export default SliderBar;
+export default SideBar;

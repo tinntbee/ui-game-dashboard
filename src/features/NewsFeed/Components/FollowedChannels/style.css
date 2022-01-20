@@ -1,0 +1,79 @@
+.followed-channels{
+    max-width: 1248px;
+    width: 100%;
+    height: 277px;
+    background: var(--background-2-color);
+    margin-top: 55px;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.followed-channels .header{
+    margin-bottom: 24px;
+}
+
+.followed-channels .header .title{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--white-color);
+}
+
+.followed-channels .body{
+    width: 100%;
+    height: fit-content;
+    padding: 16px;
+    overflow: hidden;
+}
+
+.followed-channels .body .avatar{
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    margin-bottom: 16px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+
+.followed-channels .body .avatar::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--gray-text-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.followed-channels .body .name{
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white-color);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.followed-channels .body .list-channels{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.followed-channels .body .list-channels li{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.followed-channels .body .list-channels li{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-text-color);
+}

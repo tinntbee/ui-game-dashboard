@@ -1,52 +1,52 @@
-import AddNewVideoIcon from "../../icons/SlideBar/AddNewVideoIcon";
-import AnalyticsIcon from "../../icons/SlideBar/AnalyticsIcon";
-import ChatIcon from "../../icons/SlideBar/ChatIcon";
-import FollowingIcon from "../../icons/SlideBar/FollowingIcon";
-import NewsFeedIcon from "../../icons/SlideBar/NewsFeedIcon";
-import PlayListIcon from "../../icons/SlideBar/PlayListIcon";
-import SettingsIcon from "../../icons/SlideBar/SettingsIcon";
-import TrendingIcon from "../../icons/SlideBar/TrendingIcon";
-import YourVideosIcon from "../../icons/SlideBar/YourVideosIcon";
+import AddNewVideoIcon from "../../icons/SideBar/AddNewVideoIcon";
+import AnalyticsIcon from "../../icons/SideBar/AnalyticsIcon";
+import ChatIcon from "../../icons/SideBar/ChatIcon";
+import FollowingIcon from "../../icons/SideBar/FollowingIcon";
+import NewsFeedIcon from "../../icons/SideBar/NewsFeedIcon";
+import PlayListIcon from "../../icons/SideBar/PlayListIcon";
+import SettingsIcon from "../../icons/SideBar/SettingsIcon";
+import TrendingIcon from "../../icons/SideBar/TrendingIcon";
+import YourVideosIcon from "../../icons/SideBar/YourVideosIcon";
 
-export const SlideBarData_NewsFeeds = [
+export const SideBarData_NewsFeeds = [
   {
     title: "News Feed",
-    path: "#",
+    path: "/news-feed",
     icon: <NewsFeedIcon className="ItemIcon" />,
-    className: "slide-bar__item",
+    className: "side-bar__item",
     icon_last: null,
   },
   {
     title: "Trending",
-    path: "#",
+    path: "/trending",
     icon: <TrendingIcon />,
-    className: "slide-bar__item",
+    className: "side-bar__item",
     icon_last: null,
   },
   {
     title: "Following",
     path: "#",
     icon: <FollowingIcon />,
-    className: "slide-bar__item",
+    className: "side-bar__item",
     icon_last: null,
   },
   {
     title: "Your Videos",
     path: "#",
     icon: <YourVideosIcon />,
-    className: "slide-bar__item",
+    className: "side-bar__item",
     icon_last: <AddNewVideoIcon className="icon_last" />,
   },
   {
     title: "Playlist",
     path: "#",
     icon: <PlayListIcon />,
-    className: "slide-bar__item",
+    className: "side-bar__item",
     icon_last: null,
   },
 ];
 
-export const SlideBarData_Following = [
+export const SideBarData_Following = [
   {
     id: "following_user_1",
     avatar_url:
@@ -64,7 +64,7 @@ export const SlideBarData_Following = [
   {
     id: "following_user_3",
     avatar_url:
-      "https://lh3.googleusercontent.com/proxy/jKIDwwRq0D6iFB4TYP3m7QrwOX8tvg4JVt6G_u4BvgHJnvH-wxmQsVI73XVA91kVTgcccOp55vPwNYFHd19_2ej2dnTjCRG3n8SwE64ANxPQPNwF",
+      "https://w7.pngwing.com/pngs/980/886/png-transparent-male-portrait-avatar-computer-icons-icon-design-avatar-flat-face-icon-people-head-cartoon-thumbnail.png",
     name: "Thúy Tín",
     status: "online",
   },
@@ -91,7 +91,7 @@ export const SlideBarData_Following = [
   },
 ];
 
-export const SlideBarData_UnityGaming = [
+export const SideBarData_UnityGaming = [
   {
     name: "Chat",
     icon: <ChatIcon />,
@@ -112,7 +112,7 @@ export const SlideBarData_UnityGaming = [
   },
 ];
 
-export const SlideBarData_Analytics =[
+export const SideBarData_Analytics =[
   {
     id: "analytics_1",
     title: "Join the L-SEP Unity Gaming",

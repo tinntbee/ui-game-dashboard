@@ -1,6 +1,124 @@
-.nav-bar{
-    width: 100%;
-    height: 96px;
-    background: var(--background-1-color);
-    border-bottom: 1px solid var(--gray-line-color);
+.nav-bar {
+  min-width: 300px;
+  width: 100%;
+  height: 96px;
+  background: var(--background-1-color);
+  border-bottom: 1px solid var(--gray-line-color);
+  padding: 0 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    width: 600px; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+.nav-bar__right {
+  float: right;
+  height: 100%;
+  width: 250px;
+  min-width: initial;
+  display: flex;
+}
+
+.nav-bar__right>ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.nav-bar .icon {
+  line-height: 20px;
+  fill: var(--gray-text-color);
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-bar__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: calc(100% - 800px);
+  height: 100%;
+}
+
+.nav-bar__left .browse {
+  min-width: 170px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin-right: 103px;
+  cursor: pointer;
+}
+
+.nav-bar__left .browse:hover :where(.icon, span){
+  fill: var(--white-color);
+  color: var(--white-color);
+}
+
+.nav-bar__left .browse span{
+  font-size: 15px;
+  color: var(--gray-text-color);
+  font-weight: 550;
+  line-height: 16px;
+  margin-left: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-bar__left .browse .arrow-down-icon {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.nav-bar__left .search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-bar__left .search-bar .search-icon {
+  cursor: pointer;
+}
+
+.nav-bar__left .search-bar .search-icon:hover{
+  fill: var(--white-color);
+} 
+
+.nav-bar__left .search-bar .search-icon:hover ~ input{
+  color: var(--white-color);
+}
+
+.nav-bar__left .search-bar input {
+  background-color: transparent;
+  border: none;
+  color: var(--gray-text-color);
+  letter-spacing: 1px;
+}
+
+.nav-bar__left .search-bar input:focus {
+  outline: none !important;
+  color: var(--white-color);
+}
+
+.nav-bar__left .search-bar input::placeholder,
+.nav-bar__left .search-bar input {
+  font-size: 14px;
+  color: var(--gray-text-color);
+  font-weight: 500;
+  line-height: 16px;
+  margin-left: 20px;
+  transition: all 0.2s ease-in-out;
 }

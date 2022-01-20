@@ -1,0 +1,126 @@
+.view-card {
+  height: 100%;
+  margin: 0 16px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-2-color);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.view-card__header {
+  width: 100%;
+  height: 185px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.view-card__header:hover{
+  height: 250px;
+}
+
+.view-card__body {
+  width: 100%;
+  flex-grow: 1;
+  background: inherit;
+  border-bottom: 2px solid var(--gray-line-color);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.view-card__body .title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--white-color);
+  margin-bottom: 16px;
+}
+
+.view-card__body > .host{
+  transition: all 0.5s linear;
+}
+
+.view-card__body > .host > .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 12px;
+}
+
+.view-card__body > .host > .name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.view-card__body > .host > .name-game {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-text-color);
+}
+
+.view-card__footer {
+  width: 100%;
+  height: 73px;
+  background: inherit;
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s linear;
+}
+
+.view-card__footer .icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 5px;
+  fill: var(--white-color);
+}
+
+.view-card__footer .live-status {
+  height: 26px;
+  width: 72px;
+  border-radius: 8px;
+  background: var(--background-red-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.view-card__footer .live-status span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.view-card__footer .viewer {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-text-color);
+  position: relative;
+}
+
+.view-card__footer .viewer::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+}
+
+.view-card:hover {
+  transform: translateY(-10px);
+}

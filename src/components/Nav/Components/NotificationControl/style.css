@@ -1,0 +1,196 @@
+.notification-control {
+  position: relative;
+  z-index: 999;
+}
+
+.notification-control.active .dropdown {
+  opacity: 100%;
+  height: 600px;
+  overflow: unset;
+}
+
+.notification-control .item-value::after {
+  content: attr(value);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--white-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notification-control .item-value {
+  background: var(--background-counter-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notification-control .dropdown {
+  opacity: 0%;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.notification-control .dropdown {
+  position: absolute;
+  max-height: 600px;
+  width: 360px;
+  background: var(--background-2-color);
+  top: 72px;
+  right: -100px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.notification-control .nav-icon {
+  position: relative;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.notification-control .nav-icon > .icon {
+  line-height: 20px;
+  fill: var(--gray-text-color);
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.notification-control.active .nav-icon > .icon,
+.notification-control .nav-icon:hover > .icon {
+  fill: var(--white-color);
+  border-color: var(--white-color);
+}
+
+.notification-control .list {
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.notification-control .list::-webkit-scrollbar {
+  width: 0;
+}
+
+.notification-control .dropdown::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--background-2-color);
+  top: -10px;
+  right: 115px;
+  z-index: 2;
+}
+
+.notification-control :is(ul) {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.notification-control ul li {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.notification-control ul li a {
+  width: 100%;
+  color: var(--gray-text-color);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 16px 28px 16px 20px;
+  border-radius: 12px;
+  background: transparent;
+  transition: background 0.2s ease-in-out;
+}
+
+.notification-control ul li a:hover {
+  background: var(--gray-select-bg);
+}
+
+.notification-control ul li a .content {
+  width: calc(100% - 48px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.notification-control img {
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  float: left;
+}
+
+.notification-control .content .title {
+  font-size: 13px;
+  line-height: 13px;
+  color: var(--white-color);
+}
+
+.notification-control .content p {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.notification-control .content p span {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.notification-control .time {
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  top: 16px;
+  right: 28px;
+}
+
+.notification-control .info {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 32px;
+  padding: 0 24px;
+  color: var(--white-color);
+}
+
+.notification-control .dropdown .icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  border: 2px solid var(--white-color);
+  top: 10px;
+  left: 50px;
+}

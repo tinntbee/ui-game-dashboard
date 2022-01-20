@@ -1,0 +1,264 @@
+.slide-bar {
+  height: 488px;
+  position: relative;
+}
+
+.slide-bar__thumbnail {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.slide-bar__thumbnail .thumbnail-image {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: fade 1s ease-in-out;
+  transition: background-image 0.5s linear;
+}
+
+@keyframes fade {
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
+.slide-bar__thumbnail .thumbnail-image::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    var(--background-1-color),
+    rgba(0, 0, 0, 0.3)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide-bar .content-left {
+  position: absolute;
+  width: 515px;
+  z-index: 2;
+  left: 50px;
+  bottom: 50px;
+  animation: coming 0.7s ease-in-out;
+}
+
+@keyframes coming{
+    0%{
+        bottom: 100px;
+        opacity: 0%;
+    }
+    100%{
+        bottom: 50px;
+        opacity: 100%;
+    }
+}
+
+.slide-bar .content-left .icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 5px;
+  fill: var(--white-color);
+}
+
+.slide-bar .content-left .live-status {
+  height: 26px;
+  width: 72px;
+  border-radius: 8px;
+  background: var(--background-red-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.slide-bar .content-left .live-status span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.slide-bar .content-left .title {
+  font-size: 32px;
+  color: var(--white-color);
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-top: 10px;
+}
+
+.slide-bar .content-left .info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.slide-bar .content-left .info img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.slide-bar .content-left .info span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--white-color);
+  margin-left: 10px;
+  position: relative;
+}
+
+.slide-bar .content-left .info .region {
+  margin-left: 30px;
+}
+
+.slide-bar .content-left .info .region::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--white-color);
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, 0%);
+  left: -20px;
+}
+
+.slide-bar .content-left .watch {
+  width: 130px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--primary-color);
+  display: inline-block;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-top: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.slide-bar .content-left .watch:hover {
+  filter: brightness(120%) saturate(120%);
+}
+
+/* Slide Right - Control Slide - List Image */
+
+.slide-bar .content-right{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+
+.slide {
+  display: flex;
+  flex-direction: row;
+}
+
+.slick-slider .icon {
+  font-size: 9px;
+  width: 0.6em;
+  height: 1em;
+  fill: var(--white-color);
+}
+
+.slick-slider {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  z-index: 2;
+}
+.slick-list {
+  height: 80px;
+  width: 443px;
+  padding: 12px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+
+.slick-slider button {
+  background: var(--primary-color);
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border-style: none;
+  transform: translateY(-50%);
+  z-index: 3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.slick-track{
+  display: flex;
+  flex-direction: row;
+}
+
+.slick-slide {
+  width: 96px;
+  height: 56px;
+  border-radius: 12px;
+  margin: 0 6px;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+
+.slick-slide div{
+  width: 100%;
+  height: 100%;
+}
+
+.slick-slide:hover{
+  box-shadow: rgb(105, 105, 105) 0px 0px 6px 2px;
+}
+
+.slick-slide.slick-current{
+  box-shadow: var(--white-color) 0px 0px 6px 2px;
+}
+
+.slick-slide div div {
+  background-size: cover;
+  background-position: center;
+}
+
+.slick-prev{
+  top: 50%;
+  left: 0;
+}
+
+.slick-next{
+  top: 50%;
+  right: 0;
+  padding-left: 3px;
+  padding-bottom: 1px;
+}
+
+.progress-bar{
+  height: 4px;
+  width: 100%; 
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  background: var(--gray-line-color);
+  background-image: linear-gradient(to right, #6C5DD3, #6C5DD3);
+  background-repeat: no-repeat;
+  background-position: left;
+  overflow: hidden;
+  transition: background-size 0.2s ease-in-out;
+}
